@@ -47,4 +47,8 @@ public class ProductService {
         return false;
     }
 
+    public Long getProductCount() {
+        return productRepository.count();
+    }
+
 }

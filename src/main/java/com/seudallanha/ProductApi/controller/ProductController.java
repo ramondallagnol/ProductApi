@@ -4,7 +4,6 @@ import com.seudallanha.ProductApi.model.Product;
 import com.seudallanha.ProductApi.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -59,6 +58,12 @@ public class ProductController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(products);
+    }
+
+    @GetMapping("/count")
+    public ResponseEntity<Long> getProductCount() {
+        long count = productService.getProductCount();
+        return ResponseEntity.ok(count);
     }
 
 }
